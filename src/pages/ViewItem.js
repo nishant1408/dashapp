@@ -31,7 +31,7 @@ const ViewItem = props => {
                 <p>Company : {userDetail.company.name + " - " + userDetail.company.catchPhrase + " ( " + userDetail.company.bs + " ) "}</p>
             </div>
             :
-            <></>
+            <div></div>
     );
 };
 
