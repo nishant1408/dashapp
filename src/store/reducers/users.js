@@ -4,7 +4,7 @@ const initialState = {
     users: [],
     loggedIn: false,
     loggedInUserName : "",
-    appUsers: []
+    appUsers: [{name:"Nishant",username:"nishant.kumar4@icloud.com",password:"12345678"}]
 }
 
 export default (state = initialState, action) => {

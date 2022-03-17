@@ -45,179 +45,179 @@ const CreateItem = props => {
 
     return (
         <Layout className="layout">
-            <Content style={{ padding: '0 50px' }}>
-                <div className="site-layout-content" style={{ textAlign: 'center' }}>Create User</div>
-                <div>
-                    <Form
-                        name="basic"
-                        labelCol={{
-                            span: 8,
-                        }}
-                        wrapperCol={{
-                            span: 16,
-                        }}
-                        initialValues={{
-                            remember: true,
-                        }}
-                        onFinish={onFinish}
-                        onFinishFailed={onFinishFailed}
-                        autoComplete="off"
+            <Content className="form-container" >
+                <div className="page-header">Create User</div>
+                <Form
+                    name="basic"
+                    labelCol={{
+                        span: 5,
+                    }}
+                    wrapperCol={{
+                    }}
+                    initialValues={{
+                        remember: true,
+                    }}
+                    onFinish={onFinish}
+                    onFinishFailed={onFinishFailed}
+                    autoComplete="off"
+                >
+                    <Form.Item
+                        label="Name"
+                        name="name"
+                        rules={[
+                            {
+                                required: true,
+                                message: 'Please input your name!',
+                            },
+                        ]}
                     >
-                        <Form.Item
-                            label="Name"
-                            name="name"
-                            rules={[
-                                {
-                                    required: true,
-                                    message: 'Please input your name!',
-                                },
-                            ]}
-                        >
-                            <Input value={name} onChange={val => setName(val)} />
-                        </Form.Item>
+                        <Input value={name} onChange={val => setName(val)} />
+                    </Form.Item>
 
-                        <Form.Item
-                            label="Username"
-                            name="username"
-                            rules={[
-                                {
-                                    required: true,
-                                    message: 'Please input your username!',
-                                },
-                            ]}
-                        >
-                            <Input value={username} onChange={val => setUsername(val)} />
-                        </Form.Item>
+                    <Form.Item
+                        label="Username"
+                        name="username"
+                        rules={[
+                            {
+                                required: true,
+                                message: 'Please input your username!',
+                            },
+                        ]}
+                    >
+                        <Input value={username} onChange={val => setUsername(val)} />
+                    </Form.Item>
 
-                        <Form.Item
-                            label="Email"
-                            name="email"
-                            rules={[
-                                {
-                                    required: true,
-                                    message: 'Please input your email!',
-                                },
-                            ]}
-                        >
-                            <Input type="email" value={email} onChange={val => setEmail(val)} />
-                        </Form.Item>
+                    <Form.Item
+                        label="Email"
+                        name="email"
+                        rules={[
+                            {
+                                required: true,
+                                message: 'Please input your email!',
+                            },
+                            {
+                                type: "email",
+                                message: "Please enter a valid email"
+                            }
+                        ]}
+                    >
+                        <Input type="email" value={email} onChange={val => setEmail(val)} />
+                    </Form.Item>
 
-                        <Form.Item
-                            label="Street"
-                            name="street"
-                            rules={[
-                                {
-                                    required: true,
-                                    message: 'Please input your street!',
-                                },
-                            ]}
-                        >
-                            <Input />
-                        </Form.Item>
+                    <Form.Item
+                        label="Street"
+                        name="street"
+                        rules={[
+                            {
+                                required: true,
+                                message: 'Please input your street!',
+                            },
+                        ]}
+                    >
+                        <Input />
+                    </Form.Item>
 
-                        <Form.Item
-                            label="Suite"
-                            name="suite"
-                            rules={[
-                                {
-                                    required: true,
-                                    message: 'Please input your suite!',
-                                },
-                            ]}
-                        >
-                            <Input />
-                        </Form.Item>
+                    <Form.Item
+                        label="Suite"
+                        name="suite"
+                        rules={[
+                            {
+                                required: true,
+                                message: 'Please input your suite!',
+                            },
+                        ]}
+                    >
+                        <Input />
+                    </Form.Item>
 
-                        <Form.Item
-                            label="City"
-                            name="city"
-                            rules={[
-                                {
-                                    required: true,
-                                    message: 'Please input your city!',
-                                },
-                            ]}
-                        >
-                            <Input />
-                        </Form.Item>
+                    <Form.Item
+                        label="City"
+                        name="city"
+                        rules={[
+                            {
+                                required: true,
+                                message: 'Please input your city!',
+                            },
+                        ]}
+                    >
+                        <Input />
+                    </Form.Item>
 
-                        <Form.Item
-                            label="Zipcode"
-                            name="zipcode"
-                            rules={[
-                                {
-                                    required: true,
-                                    message: 'Please input your zipcode!',
-                                },
-                            ]}
-                        >
-                            <Input type="number" />
-                        </Form.Item>
+                    <Form.Item
+                        label="Zipcode"
+                        name="zipcode"
+                        rules={[
+                            {
+                                required: true,
+                                message: 'Please input your zipcode!',
+                            },
+                        ]}
+                    >
+                        <Input type="number" />
+                    </Form.Item>
 
-                        <Form.Item
-                            label="Lat"
-                            name="lat"
-                            rules={[
-                                {
-                                    required: true,
-                                    message: 'Please input your lat!',
-                                },
-                            ]}
-                        >
-                            <Input type="number" />
-                        </Form.Item>
+                    <Form.Item
+                        label="Lat"
+                        name="lat"
+                        rules={[
+                            {
+                                required: true,
+                                message: 'Please input your lat!',
+                            },
+                        ]}
+                    >
+                        <Input type="number" />
+                    </Form.Item>
 
-                        <Form.Item
-                            label="Long"
-                            name="lng"
-                            rules={[
-                                {
-                                    required: true,
-                                    message: 'Please input your long!',
-                                },
-                            ]}
-                        >
-                            <Input type="number" />
-                        </Form.Item>
+                    <Form.Item
+                        label="Long"
+                        name="lng"
+                        rules={[
+                            {
+                                required: true,
+                                message: 'Please input your long!',
+                            },
+                        ]}
+                    >
+                        <Input type="number" />
+                    </Form.Item>
 
-                        <Form.Item
-                            label="Phone"
-                            name="phone"
-                            rules={[
-                                {
-                                    required: true,
-                                    message: 'Please input your phone!',
-                                },
-                            ]}
-                        >
-                            <Input type="tel" value={phone} onChange={val => setPhone(val)} />
-                        </Form.Item>
+                    <Form.Item
+                        label="Phone"
+                        name="phone"
+                        rules={[
+                            {
+                                required: true,
+                                message: 'Please input your phone!',
+                            },
+                        ]}
+                    >
+                        <Input type="number" value={phone} onChange={val => setPhone(val)} />
+                    </Form.Item>
 
-                        <Form.Item
-                            label="Website"
-                            name="website"
-                            rules={[
-                                {
-                                    required: true,
-                                    message: 'Please input your website!',
-                                },
-                            ]}
-                        >
-                            <Input value={website} onChange={val => setWebsite(val)} />
-                        </Form.Item>
+                    <Form.Item
+                        label="Website"
+                        name="website"
+                        rules={[
+                            {
+                                required: true,
+                                message: 'Please input your website!',
+                            },
+                        ]}
+                    >
+                        <Input value={website} onChange={val => setWebsite(val)} />
+                    </Form.Item>
 
-                        <Form.Item
-                            wrapperCol={{
-                                offset: 8,
-                                span: 16,
-                            }}
-                        >
-                            <Button type="primary" htmlType="submit">
-                                Add User
-                            </Button>
-                        </Form.Item>
-                    </Form>
-                </div>
+                    <Form.Item
+                        wrapperCol={{
+                            offset: 5,
+                        }}
+                    >
+                        <Button type="primary" htmlType="submit">
+                            Add User
+                        </Button>
+                    </Form.Item>
+                </Form>
             </Content>
         </Layout>
     );

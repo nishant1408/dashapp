@@ -35,16 +35,22 @@ const Login = props => {
         console.log('Failed:', errorInfo);
     };
 
+    const passwordValidator = (password) => {
+        if (password.length() < 8)
+            return "Password should be minimum 8 characters"
+    }
+
     return (
         <Layout className="layout">
-            <Content style={{ padding: '0 50px' }}>
+            <Content className="form-container">
+                <div className="page-header">Login</div>
                 <Form
                     name="basic"
                     labelCol={{
-                        span: 8,
+                        span: 5
                     }}
                     wrapperCol={{
-                        span: 16,
+
                     }}
                     initialValues={{
                         remember: true,
@@ -54,16 +60,20 @@ const Login = props => {
                     autoComplete="off"
                 >
                     <Form.Item
-                        label="Username"
+                        label="Email"
                         name="username"
                         rules={[
                             {
                                 required: true,
-                                message: 'Please input your username!',
+                                message: 'Please input your email!'
                             },
+                            {
+                                type: "email",
+                                message: "Please enter a valid email"
+                            }
                         ]}
                     >
-                        <Input type={"email"} value={username} onChange={val => setUsername(val)} />
+                        <Input value={username} onChange={val => setUsername(val)} />
                     </Form.Item>
 
                     <Form.Item
@@ -72,23 +82,27 @@ const Login = props => {
                         rules={[
                             {
                                 required: true,
-                                message: 'Please input your password!',
+                                message: 'Please input your password!'
                             },
+                            {
+                                min: 8,
+                                message: 'Password should be minimum 8 characters'
+                            }
                         ]}
+
                     >
                         <Input.Password value={userpassword} onChange={val => setUserpassword(val)} />
                     </Form.Item>
 
                     <Form.Item
                         wrapperCol={{
-                            offset: 8,
-                            span: 16,
+                            offset: 5
                         }}
                     >
                         <Button type="primary" htmlType="submit">
                             Login
                         </Button>
-                        <Text className="link" onClick={props.toggleForm}> Signup </Text>
+                        <Text className="link" onClick={props.toggleForm}> Not an user ? Signup </Text>
                     </Form.Item>
                 </Form>
             </Content>

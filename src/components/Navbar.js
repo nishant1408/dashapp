@@ -24,7 +24,7 @@ const Navbar = props => {
         <div>
             <Header>
                 <div className="logo" />
-                <Menu theme="dark" mode="horizontal" defaultSelectedKeys={userLoggedIn ? ["2"] : ["1"]}>
+                <Menu theme="dark" mode="horizontal">
                     {
                         userLoggedIn ?
                             <React.Fragment>

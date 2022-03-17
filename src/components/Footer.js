@@ -6,7 +6,7 @@ const Footer = props => {
     const { Footer } = Layout;
 
     return (
-        <Footer style={{ textAlign: 'center' }}>Created By Nishant Kumar</Footer>
+        <Footer style={{ textAlign: 'right' }}>Created By Nishant Kumar</Footer>
     );
 };
 

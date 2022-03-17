@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Layout, Form, Input, Button, Typography } from 'antd';
+import { Layout, Form, Input, Button, Typography, Steps } from 'antd';
 import { useDispatch } from 'react-redux';
 import { addAppUser, getUsers, loginUser } from "../store/actions/users";
 import swal from 'sweetalert';
@@ -15,10 +15,16 @@ const Signup = props => {
     const [name, setName] = useState('');
     const [username, setUsername] = useState('');
     const [userpassword, setUserpassword] = useState('');
-    const [confirmPassword, setConfirmPassword] = useState('');
+
+    const resetForm = () => {
+        setName('');
+        setUsername('');
+        setUserpassword('');
+    }
 
     const onFinish = (values) => {
         dispatch(addAppUser(values.name, values.username, values.password));
+        resetForm();
         swal("Account Created", "Your Account is created, Please login!", "success");
     };
 
@@ -28,14 +34,15 @@ const Signup = props => {
 
     return (
         <Layout className="layout">
-            <Content style={{ padding: '0 50px' }}>
+            <Content className="form-container">
+            <div className="page-header">Signup</div>
                 <Form
                     name="basic"
                     labelCol={{
-                        span: 8,
+                        span: 5
                     }}
                     wrapperCol={{
-                        span: 16,
+
                     }}
                     initialValues={{
                         remember: true,
@@ -59,13 +66,17 @@ const Signup = props => {
                     </Form.Item>
 
                     <Form.Item
-                        label="Username"
+                        label="Email"
                         name="username"
                         rules={[
                             {
                                 required: true,
-                                message: 'Please input your username!',
+                                message: 'Please input your email!',
                             },
+                            {
+                                type: "email",
+                                message: "Please enter a valid email"
+                            }
                         ]}
                     >
                         <Input type="email" value={username} onChange={val => setUsername(val)} />
@@ -79,34 +90,24 @@ const Signup = props => {
                                 required: true,
                                 message: 'Please input your password!',
                             },
+                            {
+                                min: 8,
+                                message: "Password should be minimum 8 characters"
+                            }
                         ]}
                     >
                         <Input.Password value={userpassword} onChange={val => setUserpassword(val)} />
                     </Form.Item>
 
                     <Form.Item
-                        label="Confirm Password"
-                        name="confirmPassword"
-                        rules={[
-                            {
-                                required: true,
-                                message: 'Please input your password!',
-                            },
-                        ]}
-                    >
-                        <Input.Password value={confirmPassword} onChange={val => setConfirmPassword(val)} />
-                    </Form.Item>
-
-                    <Form.Item
                         wrapperCol={{
-                            offset: 8,
-                            span: 16,
+                            offset:5
                         }}
                     >
                         <Button type="primary" htmlType="submit">
                             Signup
                         </Button>
-                        <Text className="link" onClick={props.toggleForm}> Login </Text>
+                        <Text className="link" onClick={props.toggleForm}> Already a user? Login </Text>
                     </Form.Item>
                 </Form>
             </Content>

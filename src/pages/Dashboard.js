@@ -63,20 +63,22 @@ const Dashboard = props => {
 
     return (
         <Layout className="layout">
-            <Content style={{ padding: '0 50px' }}>
-                <div className="site-layout-content">Dashboard</div>
-                <Table
-                    dataSource={users}
-                    columns={columns}
-                    onRow={(record) => ({
-                        onClick: () => {
-                            navigate('/dashboard/' + record.id);
+            <Content>
+                <div className="page-header">Dashboard</div>
+                <div className='table-container'>
+                    <Table
+                        dataSource={users}
+                        columns={columns}
+                        onRow={(record) => ({
+                            onClick: () => {
+                                navigate('/dashboard/' + record.id);
+                            }
+                        })
                         }
-                    })
-                    }
-                    rowKey={(record) => record.id}
-                    pagination={false}
-                />
+                        rowKey={(record) => record.id}
+                        pagination={false}
+                    />
+                </div>
             </Content>
         </Layout>
     );
